@@ -1,0 +1,18 @@
+.love{				
+	font-size: 2rem;
+	position : relative;			/* pour le positionnement de fas au dessus de far*/
+	& > .fas {
+		color: $color_1; 			/* linear-gradient($color_1, $color_2); ??? */
+		position: absolute;			/* pour le positionnement de fas au dessus de far */
+		left: 0;					/* pour le positionnement de fas au dessus de far */
+		top: .15rem;
+		transform: scale(0);
+		transform-origin: bottom;
+	}
+	&:hover > .fas {
+		animation: full-scale 500ms 100ms forwards;
+	}
+	&:hover > .far {
+		animation: detail 500ms 100ms forwards;	/* fait disparaître le coeur vide noir pour résoudre le problème de position de l'un sur l'autre */
+	}
+}

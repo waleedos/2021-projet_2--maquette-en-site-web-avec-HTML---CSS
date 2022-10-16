@@ -1,0 +1,25 @@
+.foot {
+	color: $color_01;
+	background-color: darken($color_4, 70%);
+	padding: 1rem 2rem;
+	&__link a {
+		color: $color_01;
+		text-decoration: none;
+		&:hover {
+			color: $color_2;
+			transition: all 100ms ease-in-out;
+		}
+	}
+	&__icone {
+		font-size: .9rem;
+		width: 1.8rem;
+	}
+}
+
+@media all and (min-width: 576px) {
+	.foot > div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+}

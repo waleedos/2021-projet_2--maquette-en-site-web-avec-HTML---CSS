@@ -1,0 +1,43 @@
+@import "base/polices";
+@import "utils/variables";
+@import "utils/mixins";
+@import "utils/keyframes";
+@import "components/button";
+@import "components/loader";
+@import "components/love";
+@import "layout/header";
+@import "layout/footer";
+@import "pages/index";
+@import "pages/page_resto";
+
+
+/* Break points 480 (560) 780 960 */ 
+
+body 
+{
+	font-family: Roboto-Regular, Arial, sans-serif;
+	font-size: 1.1rem;
+	width: 100%;
+	padding: 0; 
+	margin: 0;
+}
+
+h1, h3 
+{
+	font-weight: normal;
+}
+
+h1, h3 
+{
+	font-family: Shrikhand, Arial, sans-serif;
+}
+
+h1 
+{
+	font-size: 2rem;
+}
+
+* 
+{
+	box-sizing: border-box;		/* les padding et bordures ne modifient pas les dimensions des boites */
+}

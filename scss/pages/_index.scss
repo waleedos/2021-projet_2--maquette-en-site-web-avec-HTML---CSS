@@ -1,0 +1,196 @@
+/* ----- INDEX MAIN -/- LOADING ----- */
+/* .index {
+	visibility: hidden;
+	animation: main-loading .2s 3.2s forwards;
+} */
+
+/* ----- INDEX SECTION 1 -/- SEARCH ----- */
+
+.search {
+	padding: 20px 0;
+	background: linear-gradient(darken($color_4, 20%), darken($color_4, 5%) 10%);
+	display: flex;
+	justify-content: center;
+	&__input {
+		width: 11rem;
+		font-size: 18px;
+		text-align: center;
+		border: none;
+		background: transparent;
+	}
+}
+
+/* ----- INDEX SECTION 2 -/- TOPO ---- */
+
+.topo {
+	text-align: center;
+	background-color: $color_4;
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;			/* permet des width différents pour les boites de .topo  pour ils ne s'étirent pas tous à 100% de .topo */
+	h2 {
+		margin: 0;
+	}
+	p {
+		font-size: 1.3rem;
+		font-weight: normal;
+	}
+	&__link {
+		text-decoration: none;
+	}
+}
+
+/* ----- INDEX SECTION 3 -/- NAV ----- */
+
+.use {
+	padding: 2rem 2rem 1rem 2rem;
+	&__box {
+		padding: 1rem 0 1rem 1rem;		/* alignement left de h2 et nav avec centrage de nav__link*/
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+			/*border: solid 1px black;*/
+	}
+	&__line {
+		color: $color_00;
+		background-color: $color_4;
+		@include window;
+		margin-bottom: 2rem;
+		@include flex-align-row-center-center;
+		position: relative;				/* pour pouvoir positionner les sous éléments */
+		&-number {
+		color: $color_01;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 2rem;
+		background-color: $color_1;
+		@include flex-align-row-center-center;
+		position: absolute;				/* positionnement de use__number */
+		left: -1rem;					/* positionnement de use__number */
+		z-index: 10;
+		}
+		&-icone {
+		/*width: 2rem;*/
+		color: $color_1;
+		font-size: 1.3rem;
+		position: relative;				/* positionnement de use__icone */
+		right: 1.5rem;					/* positionnement de use__icone */
+		}
+		&::after {						/* éclaircissement de btn -/- élément en-dessous du texte → ::after */		
+		content:"";
+		height: 100%;
+		width: 100%;
+		border-radius: 1.5rem;			/* cf border-radius de @mixin window */
+		background-color: lighten($color_2, 15%);		
+		position: absolute;				/* pour positionnement de ::after dans btn */
+		left: 0;						/* positionnement de ::after dans btn */
+		top: 0;							/* positionnement de ::after dans btn */
+		opacity: 0;						/* état initial de ::after */
+		transition: opacity 200ms ease-in-out;
+		}
+		&:hover {
+			&::after {
+				opacity: .2;			/* état final de ::after */
+			}
+		}
+	}
+}
+
+
+
+/* ----- INDEX SECTION 4 -/- RESTOS ----- */
+
+.restos {
+	background-color: $color_4;
+	padding: 2rem;
+	> div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	}
+}
+.card {
+		/* background-color: $color_01 */
+		width: 100%;					/* pour firefox */
+		border-radius: 1.5rem;
+		overflow: hidden;
+		box-shadow: 2px 5px 10px darken($color_4, 20%);
+		margin-bottom: 2rem;
+		position: relative;				/* pour pouvoir positionner les enfants */
+	&__link {
+		color: $color_00;
+		text-decoration: none;
+	}
+	&__img {
+		width: 100%;
+		height: 13rem;
+		overflow: hidden;
+		.photo {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transform: scale(1);
+			&.ajust_1 {
+			object-position: 50% 100%;
+			}
+			&.ajust_2 {
+			object-position: 50% 60%;
+			}
+		}
+	}
+	&__info {
+		@include flex-align-row-between-center-padding;
+		@include ajust-h4-p;
+	}
+	&__new {
+		color: darken($color_3, 50%);
+		background-color: $color_3;
+		padding: .5rem 1rem;
+		position: absolute;				/* positionnement de card__new */
+		top: .1rem;						/* positionnement de card__new */
+		right: 1rem;					/* positionnement de card__new */
+	}
+	&:hover {
+		.card__new {
+			animation: full-scale 500ms 200ms forwards;
+		}
+		.photo {
+			transition: transform 200ms 100ms ease-in;
+			transform: scale(1.1);
+		}
+	}
+	&:not(:hover) {
+		.photo {
+			transition: transform 200ms ease-in;
+			transform: scale(1);
+		}
+	}
+}
+
+
+@media all and (max-width: 575px) {
+	.card {
+		width: 100%;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 1280px) {
+	.card {
+		width: 47%;
+	}
+	.use__box {
+		width: 70%;
+		margin: auto;
+	}
+}
+
+@media all and (min-width: 1281px) {
+	.card {
+		width: 23%;
+	}
+	.use__line {
+		max-width: 30%;
+	}
+}

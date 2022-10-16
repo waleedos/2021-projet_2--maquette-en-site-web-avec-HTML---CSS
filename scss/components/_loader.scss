@@ -1,0 +1,66 @@
+.loader-page {
+	width: 100%;
+	height: 100%;
+	background-color: $color_01;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	animation: stop-loading .4s 5s forwards;
+}
+.loader-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20%;
+	> .loader:nth-child(3) {
+		position: relative;
+		top: -93px;
+	}
+}
+.loader {
+	width: 300px;
+	height: 70px;
+	margin: auto;
+	display: flex;
+	justify-content: space-evenly;
+	&__ball {
+		width: $size-ball;			/* taille des balles plus petite → meilleure parformance de l'animation : fps reste inférieur ou très proche de 60 (si 25 px pics vers 70 fps) */
+		height: $size-ball;
+		border-radius: 50%;
+		position: relative;
+		animation: anim-ball 0.8s alternate ease;
+		animation-iteration-count: 7;				/* Pour stopper l'animation au bout de 3,5s = jusqu'à ce que les balles se positionnents en haut */
+	}
+	&__shadow {
+		width: $size-ball;
+		height: 3px;
+		border-radius: 50%;
+		background-color: darken($color_4, 30%);
+		opacity: 0;
+		filter: blur(1px);							/* effet flou */
+		z-index: -1;
+		animation: anim-shadow 1s alternate ease;
+		animation-iteration-count: 7;
+	}
+	p {
+		width: 15px;
+		font-size: 1.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	@for $i from 1 through $num-color {
+		> .loader__ball:nth-child(#{$i}) {
+			background-color: nth($list-color, $i);
+			animation-delay: $load-delay-step * $i;
+		}
+		> .loader__shadow:nth-child(#{$i}) {
+			animation-delay: $load-delay-step * $i;
+		}
+		> p:nth-child(#{2*$i}) {
+			animation: anim-text 2s ease;
+			animation-iteration-count: 8;		/* animation balles stoppée au bout de 3,5s -/- 4 cylcles pour l'animation texte */
+			animation-delay: $load-delay-step * $i;
+		}
+	}
+}

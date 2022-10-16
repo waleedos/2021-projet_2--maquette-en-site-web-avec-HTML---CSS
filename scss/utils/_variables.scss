@@ -1,0 +1,19 @@
+/* couleurs */
+
+$color_00: #000000;
+$color_01: #FFFFFF;
+$color_1: #9356DC; 		/* violet */
+$color_2: #FF79DA;		/* rose */
+$color_3: #99E2D0;		/* vert */
+$color_4: #F6F6F6;		/* gris clair */
+
+$list-color: $color_1, $color_2, $color_3;
+$num_color: 3;
+
+/* pages resto */
+$dish-num: 10;
+$dish-delay-step: 160ms;
+
+/* loader */
+$size-ball: 20px;
+$load-delay-step: 200ms;

@@ -1,0 +1,126 @@
+/* ----- PAGES RESTO SECTION 1 -/- IDENTITY ----- */
+
+.identity-0 {									/* page_template */
+	background-image: url("../img/restaurants/the_taste_palette.jpg");
+	background-size: 110%;
+	@include identity;
+}
+.identity-1 {									/* page_1 */						
+	background-image: url("../img/restaurants/the_taste_palette.jpg");
+	background-size: 110%;
+	@include identity;
+}
+.identity-2 {									/* page_2 */
+	background-image: url("../img/restaurants/the_enchanted_note.jpg");
+	background-size: 100%;
+	background-position: 0 -150px;
+	@include identity;
+}
+.identity-3 {									/* page_3 */
+	background-image: url("../img/restaurants/the_french_style.jpg");
+	background-size: 110%;
+	@include identity;
+}
+.identity-4 {									/* page_4 */
+	background-image: url("../img/restaurants/delight_of_the_senses.jpg");
+	background-size: 100%;
+	@include identity;
+}
+
+/* ----- PAGES RESTO SECTION 1 -/- MENU ----- */
+
+.menu {
+	background-color: $color_4;
+	padding: 0 1rem 0.5rem 1rem;
+	&__group {
+		padding-top: .5rem;
+		position: relative;
+		animation: group 800ms both ease-out;
+	}
+	&__line {
+		width: 3rem;
+		height: .3rem;
+		background-color: $color_3;
+		border: none;
+		margin: -1rem 0 1.5rem 0;
+	}
+	&__dish {
+		background-color: $color_01;
+		@include window;
+		margin-bottom: 1rem;
+		overflow: hidden;
+		cursor: pointer;
+		animation: dish 1s both cubic-bezier(0, 0, 0.2, 1);			/* un peu plus doux que ease-out à la fin */
+		@for $i from 1 through $dish-num {
+			&--L#{$i} {
+				animation-delay:  800ms + $dish-delay-step * $i;
+			}
+		}
+		&--valid {													/* animation coche plat */
+			width: 130%;
+			@include flex-align-row-nowrap-between-start-end-padding;
+			transition: all 500ms;
+			&:hover {												/* prépa animation */
+				width: 100%;
+				> .menu__dish-box-3 {
+					> .fas {
+						transform: rotate(1turn);
+					}
+				}
+			}
+		}
+		&-box-1 {
+			width: 60%;
+			@include ajust-h4-p;
+		}
+		&-box-2{
+			width: 20%;
+			text-align: center;
+			font-weight: bold;
+		}
+		&-box-3 {
+			width: 20%;
+			height: 5.5rem;
+			background-color: $color_3;
+			margin-top: -.5rem;								/* ajustement centrage vertical ??? */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.fas {
+				color: $color_01;
+				font-size: 2rem;
+				transform: rotate(0);
+				transition: transform 420ms 80ms; 			/* choix valeur cf ChromeDevTool */
+			}
+		}
+	}
+}
+
+/* ----- PAGES RESTO SECTION 1 -/- COMMAND -----*/
+
+.command {
+	background-color: $color_4;
+	padding: 3rem;
+	display: flex;											/* permet d'appliquer le padding de button plutôt que le witdh 100% du parent par défaut */ 
+	justify-content: center;
+	&__link {
+		text-decoration: none;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 1280px) {
+	.menu-wrap {
+		width: 70%;
+		margin: auto;
+	}
+}
+
+@media all and (min-width: 1281px) {
+	.menu-wrap {
+		width: 32%;
+	}
+	.menu {
+		display: flex;
+		justify-content: space-between;
+	}
+}

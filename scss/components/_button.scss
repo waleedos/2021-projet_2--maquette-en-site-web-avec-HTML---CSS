@@ -1,0 +1,32 @@
+.button {
+	color: $color_01;
+	height: 3.5rem;
+	min-width: 15rem;
+	border-radius: 2rem;
+	background: linear-gradient(175deg, $color_2, $color_1);	
+	box-shadow: 2px 5px 10px darken($color_4, 30%);				
+	padding: 0 2rem;
+	margin-bottom: 1rem;
+	display: flex;								/* pour l''alignement du texte de btn */
+	justify-content: center;					/* pour l'alignement horizontal du texte de btn */
+	align-items: center; 						/* pour l'alignement vertical du texte de btn */
+	position: relative;							/* pour le positionnement de ::before dans btn */
+	&::after {									/* pour l''éclaircissement de btn - élément en-dessous du texte → ::after */
+		content:"";
+		height: 100%;
+		width: 100%;
+		border-radius: 2rem;
+		background-color: $color_01;		
+		box-shadow: 2px 5px 5px $color_00;
+		position: absolute;						/* pour le positionnement de ::after dans btn */
+		left: 0;								/* pour le positionnement de ::after dans btn */
+		top: 0;									/* pour le positionnement de ::after dans btn */
+		opacity: 0;								/* état initial de ::after */
+		transition: opacity 500ms ease-in-out;
+	}
+	&:hover {
+		&::after {
+			opacity: .2;						/* état final de ::after */
+		}
+	}
+}

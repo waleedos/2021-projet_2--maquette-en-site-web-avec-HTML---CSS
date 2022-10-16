@@ -1,0 +1,130 @@
+/*--------------- Loader ---------------*/
+
+@keyframes anim-ball {
+	from {
+		top: 100%;
+		height: 5px;
+		border-radius: 40px 40px 10px 10px;
+		transform: scaleX(1.7);
+	}
+	20% {
+		height: 20px;
+		border-radius: 50%;
+		transform: scaleX(1);
+	}
+	to {
+		top: 0;
+		/*height: 20px;
+		border-radius: 50%;
+		transform: scaleX(1);*/
+	}
+}
+
+
+@keyframes anim-shadow {
+	from {
+		transform: scale(.8, .5);
+		opacity: 1;
+	}
+	20% {
+		transform: scale(.5, .5);
+		opacity: .8;
+	}
+	to {
+		transform: scale(0, 0);
+		opacity: 0;
+	}
+}
+
+
+@keyframes anim-text {
+	from {
+		transform: rotateX(1turn);
+	}
+	60% {
+		transform: rotateX(0);
+	}
+}
+
+
+@keyframes stop-loading {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		z-index: -100;
+	}
+}
+
+
+@keyframes main-loading {
+	from {
+		visibility: hidden;
+	}
+	to {
+		visibility: visible;
+	}
+}
+
+
+/*------- J'aime -/- remplissage du coeur  -------*/
+
+@keyframes full-scale {
+	from {
+		transform: scale(0);
+		animation-timing-function: ease-in-out;
+	}
+	95% {
+		transform: scale(1.1);
+		animation-timing-function: ease-in-out;
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+@keyframes detail {
+	from, 95% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+/* ------- Index -/- photos resto  ------- */
+
+@keyframes photo {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
+}
+
+
+/* ------- Restos -/- menus  ------- */
+
+@keyframes group{
+	from {
+		left: -50rem;
+	}
+	to {
+		left: 0;
+	}
+}
+
+
+@keyframes dish {
+	from {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
